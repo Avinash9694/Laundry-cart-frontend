@@ -20,15 +20,11 @@ const [newobject, setnewobject] = useState({
     // console.log(newobject)
 
     function handlechange(e){
-        // console.log(e.target.value);
-        // console.log(e.target.name);
             setnewobject({...newobject,[e.target.name]:e.target.value})
-            // console.log(newobject)
     }
 
 async function handlesubmit(e){
         e.preventDefault();
-    console.log(newobject)
     let f=false
 
     for (let field in newobject){
