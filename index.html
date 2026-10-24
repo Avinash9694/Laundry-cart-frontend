@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laundry Cart — doorstep wash, iron and dry-clean orders</title>
+    <meta
+      name="description"
+      content="Order laundry in four steps: pick garments, choose wash types, set a pickup store and review a live price breakdown. Track every order from placed to delivered."
+    />
+    <meta name="theme-color" content="#0f7fa6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Laundry Cart" />
+    <meta
+      property="og:description"
+      content="Garment and wash-type order wizard with order history, pricing and status tracking."
+    />
+    <meta property="og:url" content="https://avinash9694.github.io/Laundry-cart-frontend/" />
+    <meta
+      property="og:image"
+      content="https://avinash9694.github.io/Laundry-cart-frontend/og.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/Laundry-cart-frontend/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        var t = JSON.parse(localStorage.getItem('laundry-cart.theme'));
+        if (t !== 'dark' && t !== 'light') {
+          t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
