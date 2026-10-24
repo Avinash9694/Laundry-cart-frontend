@@ -1,0 +1,43 @@
+.tiles {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+@media (min-width: 640px) {
+  .tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.tile {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+.tileIcon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.tileLabel {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.tileValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.recentHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
