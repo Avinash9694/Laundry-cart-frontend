@@ -30,7 +30,8 @@ describe('useScrollToHash', () => {
       </MemoryRouter>,
     );
     await vi.waitFor(() => expect(scrollTo).toHaveBeenCalledTimes(1));
-    expect(scrollTo).toHaveBeenCalledWith(expect.objectContaining({ top: expect.any(Number) }));
+    const options = scrollTo.mock.calls[0]?.[0] as ScrollToOptions | undefined;
+    expect(options?.top).toBeTypeOf('number');
     scrollTo.mockRestore();
   });
 
