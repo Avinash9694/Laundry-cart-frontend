@@ -1,4 +1,5 @@
 import { useCatalog, useStores } from '@/hooks/use-api';
+import { useScrollToHash } from '@/hooks/use-scroll-to-hash';
 import { useAuthStore } from '@/store/auth-store';
 import { DELIVERY_FEE, FREE_DELIVERY_THRESHOLD } from '@/domain/pricing';
 import { formatINR } from '@/lib/format';
@@ -36,6 +37,7 @@ const HOW = [
 ];
 
 export function LandingPage() {
+  useScrollToHash();
   const authed = useAuthStore((s) => s.token !== null);
   const catalog = useCatalog();
   const stores = useStores();
@@ -57,7 +59,7 @@ export function LandingPage() {
                 {authed ? 'Start a new order' : 'Create an account'}
                 <IconArrowRight size={18} />
               </LinkButton>
-              <LinkButton to="/#pricing" variant="secondary" size="lg">
+              <LinkButton to={{ pathname: '/', hash: '#pricing' }} variant="secondary" size="lg">
                 See pricing
               </LinkButton>
             </div>

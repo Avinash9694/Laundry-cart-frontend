@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { IS_DEMO_MODE } from '@/api';
 import { DEMO_ACCOUNT } from '@/api/demo-data';
@@ -23,14 +23,14 @@ import styles from './layout.module.css';
 const AUTHED_LINKS = [
   { to: '/dashboard', label: 'Dashboard' },
   { to: '/orders/new', label: 'New order' },
-  { to: '/orders', label: 'Orders' },
-  { to: '/account', label: 'Account' },
+  { to: '/orders', hash: '', label: 'Orders' },
+  { to: '/account', hash: '', label: 'Account' },
 ];
 
 const PUBLIC_LINKS = [
-  { to: '/#how-it-works', label: 'How it works' },
-  { to: '/#pricing', label: 'Pricing' },
-  { to: '/#stores', label: 'Stores' },
+  { to: '/', hash: '#how-it-works', label: 'How it works' },
+  { to: '/', hash: '#pricing', label: 'Pricing' },
+  { to: '/', hash: '#stores', label: 'Stores' },
 ];
 
 function navClass({ isActive }: { isActive: boolean }) {
@@ -101,10 +101,10 @@ export function Header() {
         <Logo />
         <nav className={styles.nav} aria-label="Primary">
           {links.map((l) =>
-            l.to.includes('#') ? (
-              <a key={l.to} href={l.to} className={styles.navLink}>
+            l.hash ? (
+              <Link key={l.hash} to={{ pathname: l.to, hash: l.hash }} className={styles.navLink}>
                 {l.label}
-              </a>
+              </Link>
             ) : (
               <NavLink key={l.to} to={l.to} className={navClass} end={l.to === '/orders'}>
                 {l.label}
@@ -169,10 +169,10 @@ export function Header() {
           aria-label="Mobile"
         >
           {links.map((l) =>
-            l.to.includes('#') ? (
-              <a key={l.to} href={l.to} className={styles.navLink}>
+            l.hash ? (
+              <Link key={l.hash} to={{ pathname: l.to, hash: l.hash }} className={styles.navLink}>
                 {l.label}
-              </a>
+              </Link>
             ) : (
               <NavLink key={l.to} to={l.to} className={navClass} end={l.to === '/orders'}>
                 {l.label}
